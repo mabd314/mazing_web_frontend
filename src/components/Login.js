@@ -1,6 +1,10 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import React,{useEffect, useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Alert,
+Row,
+Col,
+Container} from 'reactstrap';
+
 import LoadingComponent from './LoadingComponent';
 function Login (props){
 
@@ -21,10 +25,15 @@ function Login (props){
 
     if(isAuthenticated){
         return (
-            <>
-                <h1>You logged in successfully!</h1>
-                <Link to='/home'>Back To App</Link>
-            </>
+            <Container>
+                <Row>
+                    <Col xs='12'>
+                        <Alert color='success' className='mt-5'>
+                            <h1>You logged in successfully!</h1>
+                        </Alert>
+                    </Col>
+                </Row>
+            </Container>
         )
     }
     else
