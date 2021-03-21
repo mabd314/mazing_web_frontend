@@ -1,4 +1,4 @@
-import react, { Component } from 'react';
+import react, { Component, } from 'react';
 
 import {
     Button,
@@ -38,6 +38,7 @@ function GameArea(props){
     const commitButtonClicked=async()=>{
         const token=await getAccessTokenSilently();
         props.executeCommand(props.commandText.text,token)
+        props.fetchCurrentGamePlayersNames(props.game.gameId);
     }
 
     const leaveGameButtonClicked=async()=>{
@@ -66,7 +67,9 @@ function GameArea(props){
                     <Response response={props.response}/>
                 </Col>
             </Row>
-            <PlayersNames game={props.game} />
+            <PlayersNames fetchCurrentGamePlayersNames={props.fetchCurrentGamePlayersNames}
+                activeGamePlayersNames={props.activeGamePlayersNames} 
+                game={props.game} />
             <Row xs='1' className='m-5'>
                 <Col xs={{size:4,offset:4}}>
                     <Button block outline color="danger" onClick={leaveGameButtonClicked}>Leave Game</Button>
@@ -84,7 +87,9 @@ function GameArea(props){
     return (
         <>
             <Start game={props.game} startGame={props.startGame}/>
-            <PlayersNames game={props.game} />
+            <PlayersNames fetchCurrentGamePlayersNames={props.fetchCurrentGamePlayersNames}
+                activeGamePlayersNames={props.activeGamePlayersNames}
+                game={props.game} />
             <Row className='m-5'>
                 <Col xs={{size:4,offset:4}}>
                     <Button block outline color="danger" onClick={leaveGameButtonClicked}>Leave Game</Button>

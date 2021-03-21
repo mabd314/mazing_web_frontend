@@ -24,7 +24,16 @@ function Play(props){
     else if(props.activePlayer.player && props.activePlayer.player.gameId)
         return (
             <>
-                <GameArea leaveGame={props.leaveGame} game={props.games.games.find(game=>(game.gameId===props.activePlayer.player.gameId))} activePlayer={props.activePlayer} executeCommand={props.executeCommand} commandText={props.commandText} editCommand={props.editCommand} response={props.response} startGame={props.startGame}/>
+                <GameArea leaveGame={props.leaveGame}
+                    game={props.games.games.find(game=>(game.gameId===props.activePlayer.player.gameId))}
+                    activePlayer={props.activePlayer}
+                    executeCommand={props.executeCommand}
+                    commandText={props.commandText}
+                    editCommand={props.editCommand}
+                    response={props.response}
+                    startGame={props.startGame}
+                    activeGamePlayersNames={props.activeGamePlayersNames}
+                    fetchCurrentGamePlayersNames={props.fetchCurrentGamePlayersNames}/>
             </>
         )
 

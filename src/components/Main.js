@@ -18,6 +18,7 @@ import {startGame,
         fetchPlayer,
         leaveGame,
         createGame,
+        fetchCurrentGamePlayersNames,
     } from '../redux/actionCreators'
 
 import Play from './Play';
@@ -33,7 +34,8 @@ const mapStateToProps=state=>({
     response:state.response,
     commandText:state.commandText,
     games:state.games,
-    activePlayer:state.activePlayer
+    activePlayer:state.activePlayer,
+    activeGamePlayersNames:state.activeGamePlayersNames
 });
 
 const mapDispatchToProps=dispatch=>({
@@ -45,6 +47,7 @@ const mapDispatchToProps=dispatch=>({
     fetchPlayer:token=>dispatch(fetchPlayer(token)),
     leaveGame: token=>dispatch(leaveGame(token)),
     createGame: (token,difficulty)=>dispatch(createGame(token,difficulty)),
+    fetchCurrentGamePlayersNames:gameId=>dispatch(fetchCurrentGamePlayersNames(gameId))
 });
 
 
@@ -72,7 +75,10 @@ class Main extends Component{
                             editCommand={this.props.editCommand}
                             response={this.props.response}
                             startGame={this.props.startGame}
-                            activePlayer={this.props.activePlayer}/>
+                            activePlayer={this.props.activePlayer}
+                            fetchCurrentGamePlayersNames={this.props.fetchCurrentGamePlayersNames}
+                            activeGamePlayersNames={this.props.activeGamePlayersNames}/>
+                            
                     </Route>
                     <Route path='/home'>
                         <Home/>

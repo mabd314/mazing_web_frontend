@@ -40,6 +40,21 @@ export const responseLoading=()=>({
     type:actionTypes.RESPONSE_LOADING
 });
 
+export const namesLoading=()=>({
+    type:actionTypes.NAMES_LOADING
+});
+
+export const namesFailed=(errMess)=>({
+    type:actionTypes.NAMES_FAILED,
+    payload:errMess
+})
+
+export const putNames=(jsonNames)=>({
+    type:actionTypes.PUT_NAMES,
+    payload:jsonNames
+})
+
+
 export const editResponse=(response)=>({
     type:actionTypes.EDIT_RESPONSE,
     payload:{
@@ -68,6 +83,8 @@ const getColor=responseType=>{
         case 'STATUS':
             return 'info';
         case 'LOST':
+            return 'danger';
+        default:
             return 'danger';
     }
 }
@@ -205,15 +222,25 @@ export const fetchGames=()=>async dispatch=>{
     }
 };
 
+export const fetchCurrentGamePlayersNames=gameId=>async dispatch=>{
+    dispatch(namesLoading());
+    try{
+        const jsonNames=await getPlayersNamesFromGameId(gameId);
+        dispatch(putNames(jsonNames));
+    }catch(err){
+        dispatch(namesFailed(err.message));
+    }
+}
+
 export const getPlayersNamesFromGameId=async gameId=>{
     try{
         const response=await fetch(serverBase+`/games/${gameId}/playersNames`)
         if(response.status>=400)
-            return ["can not fetch player names"];
+            throw new Error("can not fetch player names")
         const jsonPlayerNames=await response.json();
         return jsonPlayerNames;
     }catch(err){
-        return "can not fetch player names";
+        throw new Error("can not fetch player names: "+err.message);
     }
 }
 
@@ -233,7 +260,6 @@ export const executeCommand=(query,token)=>async dispatch=>{
         })
         const jsonResponse= await response.json();
         dispatch(editResponse(jsonResponse));
-        dispatch(fetchGames());
     }catch(err){
         dispatch(editResponse({
             type:"Server Error",
