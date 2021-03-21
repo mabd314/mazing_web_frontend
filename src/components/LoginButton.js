@@ -4,11 +4,11 @@ import {Button} from 'reactstrap';
 function LoginButton() {
   const {
     isAuthenticated,
-    loginWithPopup,
+    loginWithRedirect,
   } = useAuth0();
 
   return !isAuthenticated && (
-    <Button color='light' outline className='nav-link' onClick={loginWithPopup}>
+    <Button color='light' outline className='nav-link' onClick={loginWithRedirect}>
       <span className='fa fa-sign-out'></span> login
       </Button>  
   );

@@ -24,6 +24,7 @@ import Footer from './Footer';
 import HowToPlay from './HowToPlay';
 import Home from './Home';
 import Contact from './Contact';
+import LoadingComponent from './LoadingComponent';
 
 const mapStateToProps=state=>({
     response:state.response,

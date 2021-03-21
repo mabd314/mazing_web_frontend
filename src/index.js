@@ -15,7 +15,7 @@ ReactDOM.render(
         domain="moapps.us.auth0.com"
         clientId="ciZkBUWVuSZq6y9Yz7aNDY9VgHNAB5RR"
         audience="https://SpringTest.com"
-        redirectUri="https://master.dpvwyrudqsbwf.amplifyapp.com/play"
+        redirectUri="https://mazingame.com/play"
         >
       <App />
     </Auth0Provider>

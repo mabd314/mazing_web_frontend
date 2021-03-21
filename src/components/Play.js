@@ -2,9 +2,9 @@ import react,{useEffect} from 'react';
 
 import GamesContainer from './GamesContainer';
 import GameArea from './GameArea';
+import LoadingComponent from './LoadingComponent';
 
 import { withAuthenticationRequired,useAuth0 } from '@auth0/auth0-react';
-import CommandsHelp from './CommandsHelp';
 
 
 function Play(props){
@@ -19,7 +19,7 @@ function Play(props){
         return <h1>{props.games.errMess}</h1>
 
     else if(props.games.isLoading)
-        return null
+        return <LoadingComponent/>
 
     else if(props.activePlayer.player && props.activePlayer.player.gameId)
         return (
@@ -33,7 +33,7 @@ function Play(props){
             <GamesContainer createGame={props.createGame} chooseGame={props.chooseGame} activePlayer={props.activePlayer} games={props.games}></GamesContainer>
         ) 
     else
-        return <h1>Logging In......</h1>
+        return <LoadingComponent/>
 }
 
 export default withAuthenticationRequired(Play);

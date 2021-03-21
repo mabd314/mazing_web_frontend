@@ -15,6 +15,7 @@ import Start from './Start';
 import Response from './Response';
 import { useAuth0 } from '@auth0/auth0-react';
 import PlayersNames from './PlayersNames';
+import LoadingComponent from './LoadingComponent';
 
 function GameArea(props){
 
@@ -78,7 +79,7 @@ function GameArea(props){
     return <h1>{props.activePlayer.errMess}</h1>
 
     if(props.activePlayer.isGameStarting)
-    return <h1>Loading........</h1>
+    return <LoadingComponent/>
 
     return (
         <>
