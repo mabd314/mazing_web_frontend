@@ -4,12 +4,12 @@ import {Link} from 'react-router-dom';
 import LoadingComponent from './LoadingComponent';
 function Login (props){
 
-    const {isAuthenticated,loginWithRedirect,error,isLoading,getAccessTokenSilently,user}=useAuth0();
-    const {token,setToken}=useState("");
+    const {isAuthenticated,loginWithRedirect,getAccessTokenSilently,user}=useAuth0();
     useEffect(async () => {
+        if(isAuthenticated)
+            return;
         try{
-            console.log(user);
-            token=await getAccessTokenSilently();
+            console.log(await getAccessTokenSilently());
             console.log(user);
         }catch(err){
             console.log(err);
@@ -25,18 +25,8 @@ function Login (props){
             </>
         )
     }
-    else if(isLoading){
-        return <LoadingComponent/>
-    }
-    else if(error){
-        return <h1>can not log in</h1>
-    }
-    else if(token==="error"){
-        return <h1>token=error</h1>
-    }
-    else{
-        return <h1>{token}</h1>;
-    }
+    else
+    return <h1>you should be logging in instead of seeing this.</h1>
 }
 
 export default Login;

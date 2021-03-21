@@ -53,6 +53,8 @@ class Main extends Component{
     render(){
         if(this.props.auth0.isLoading)
             return <LoadingComponent/>
+        else if(this.props.auth0.error)
+            return <h1>something is wrong with auth0</h1>
         return(
             <>
                 <Header/>
