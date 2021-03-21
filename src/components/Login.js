@@ -6,6 +6,7 @@ function Login (props){
 
     const {isAuthenticated,loginWithRedirect,getAccessTokenSilently,user}=useAuth0();
     useEffect(async () => {
+        console.log(user);
         if(isAuthenticated)
             return;
         try{
