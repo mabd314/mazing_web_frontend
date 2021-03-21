@@ -3,7 +3,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import LoadingComponent from './LoadingComponent';
 function Login (props){
-    const {isAuthenticated,loginWithRedirect,error,isLoading}=useAuth0();
+    const {isAuthenticated,loginWithRedirect,error,isLoading,getAccessTokenSilently}=useAuth0();
     if(isAuthenticated){
         return (
             <>
@@ -19,7 +19,13 @@ function Login (props){
         return <h1>can not log in</h1>
     }
     else{
-        loginWithRedirect();
+        setTimeout(()=>{
+            getAccessTokenSilently().catch((err)=>{
+                console.log(err);
+                loginWithRedirect();
+            })
+        },1000)
+        return null;
     }
 }
 
