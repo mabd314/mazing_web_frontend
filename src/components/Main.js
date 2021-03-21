@@ -8,6 +8,8 @@ import {Switch,
 
 import {connect} from 'react-redux';
 
+import { withAuth0 } from '@auth0/auth0-react';
+
 import {startGame,
         executeCommand,
         editCommand,
@@ -24,6 +26,7 @@ import Footer from './Footer';
 import HowToPlay from './HowToPlay';
 import Home from './Home';
 import Contact from './Contact';
+import Login from './Login';
 import LoadingComponent from './LoadingComponent';
 
 const mapStateToProps=state=>({
@@ -44,10 +47,12 @@ const mapDispatchToProps=dispatch=>({
     createGame: (token,difficulty)=>dispatch(createGame(token,difficulty)),
 });
 
+
         
 class Main extends Component{
-
     render(){
+        if(this.props.auth0.isLoading)
+            return <LoadingComponent/>
         return(
             <>
                 <Header/>
@@ -76,6 +81,9 @@ class Main extends Component{
                     <Route path='/contact'>
                         <Contact/>
                     </Route>
+                    <Route path='/login'>
+                        <Login/>
+                    </Route>
                     <Redirect to='/home'/>
                 </Switch>
                 <Footer/>
@@ -84,4 +92,4 @@ class Main extends Component{
     }
 }
 
-export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Main));
+export default withAuth0(withRouter(connect(mapStateToProps,mapDispatchToProps)(Main)));

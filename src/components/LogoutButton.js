@@ -4,14 +4,14 @@ import {
   Button
 } from 'reactstrap';
 
-function LogoutButton() {
+function LogoutButton(props) {
   const {
     isAuthenticated,
     logout,
     user
   } = useAuth0();
 
-  return isAuthenticated && (
+  return (
     <>
       <small>{user.email}</small>
       <Button color='light' outline className='nav-link' onClick={(event) => {

@@ -1,16 +1,12 @@
 import React from 'react';
-import { useAuth0 } from '@auth0/auth0-react';
 import {Button} from 'reactstrap';
-function LoginButton() {
-  const {
-    isAuthenticated,
-    loginWithRedirect,
-  } = useAuth0();
+import {Link} from 'react-router-dom';
 
-  return !isAuthenticated && (
-    <Button color='light' outline className='nav-link' onClick={loginWithRedirect}>
-      <span className='fa fa-sign-out'></span> login
-      </Button>  
+function LoginButton(props) {
+  return(
+    <Link to='/login' className='nav-link'>
+      <Button color='light' outline className='nav-link' ><span className='fa fa-sign-out'></span> login</Button>
+    </Link>
   );
 }
 
