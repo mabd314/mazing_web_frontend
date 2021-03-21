@@ -28,7 +28,7 @@ function Login (props){
                 loginWithRedirect({
                     audience:"https://mazing.com",
                     // redirectUri:"http://localhost:3000/login"
-                    redirectUri="https://mazingame.com/login"
+                    redirectUri:"https://mazingame.com/login"
                 });
             });
         },500)
