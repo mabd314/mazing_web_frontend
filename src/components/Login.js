@@ -9,6 +9,7 @@ function Login (props){
         if(isAuthenticated)
             return;
         try{
+            console.log(user);
             console.log(await getAccessTokenSilently());
             console.log(user);
         }catch(err){
@@ -26,7 +27,7 @@ function Login (props){
         )
     }
     else
-    return <h1>you should be logging in instead of seeing this.</h1>
+        return <LoadingComponent/>
 }
 
 export default Login;

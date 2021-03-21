@@ -16,7 +16,7 @@ ReactDOM.render(
         clientId="yjY5YBQbRMTYNfiwJRaxm0WepV9lqJkv"
         audience="https://mazing.com"
         // redirectUri="http://localhost:3000/login"
-        redirectUri="https://mazingame.com/login"
+        redirectUri="https://www.mazingame.com/login"
         >
       <App />
     </Auth0Provider>
