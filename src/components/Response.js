@@ -3,10 +3,11 @@ import {
     Alert,
     
 } from 'reactstrap'
+import LoadingComponent from './LoadingComponent';
 
 function Play(props){
     if(props.response.isLoading)
-        return null;
+        return <LoadingComponent/>
     return(
         <Alert color={props.response.color}>
             <h4 className="alert-heading">{props.response.type}</h4>

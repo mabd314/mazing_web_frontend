@@ -13,8 +13,8 @@ ReactDOM.render(
   <React.StrictMode>
     <Auth0Provider
         domain="moapps.us.auth0.com"
-        clientId="ciZkBUWVuSZq6y9Yz7aNDY9VgHNAB5RR"
-        audience="https://SpringTest.com"
+        clientId="yjY5YBQbRMTYNfiwJRaxm0WepV9lqJkv"
+        audience="https://mazing.com"
         redirectUri="https://mazingame.com/play"
         >
       <App />
