@@ -86,7 +86,7 @@ function GameArea(props){
 
     return (
         <>
-            <Start game={props.game} startGame={props.startGame}/>
+            <Start activePlayer={props.activePlayer} game={props.game} startGame={props.startGame}/>
             <PlayersNames fetchCurrentGamePlayersNames={props.fetchCurrentGamePlayersNames}
                 activeGamePlayersNames={props.activeGamePlayersNames}
                 game={props.game} />

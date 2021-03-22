@@ -10,13 +10,10 @@ function Login (props){
 
     const {isAuthenticated,loginWithRedirect,getAccessTokenSilently,user}=useAuth0();
     useEffect(async () => {
-        console.log(user);
         if(isAuthenticated)
             return;
         try{
-            console.log(user);
-            console.log(await getAccessTokenSilently());
-            console.log(user);
+            await getAccessTokenSilently();
         }catch(err){
             console.log(err);
             loginWithRedirect();

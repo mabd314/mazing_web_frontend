@@ -7,7 +7,7 @@ function CommandsHelp (props){
                 <strong>left:</strong> The character turns left, changes orientation from north to west for example.<br/>
                 <strong>right:</strong> The character turns right, changes orientation from north to east for example.<br/>
                 <strong>forward:</strong> If the character is facing an open door, he walks through that door to the room behind it.<br/>
-                <strong>bacward:</strong> If there is an open door behind the character, he walks through that door to the room behind it.<br/>
+                <strong>backward:</strong> If there is an open door behind the character, he walks through that door to the room behind it.<br/>
             <br/>
             <h2>Status</h2>
                 <strong>status:</strong> Displays the character's orientation direction, gold count, and items<br/>

@@ -57,10 +57,10 @@ class Main extends Component{
         if(this.props.auth0.isLoading)
             return <LoadingComponent/>
         else if(this.props.auth0.error)
-            return <h1>something is wrong with auth0</h1>
+            return <h1>something is wrong with auth0: {this.props.auth0.error.message}</h1>
         return(
             <>
-                <Header/>
+                <Header fetchPlayer={this.props.fetchPlayer} activePlayer={this.props.activePlayer}/>
                 <Switch>
                     <Route path='/play'>
                         <Play 

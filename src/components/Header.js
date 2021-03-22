@@ -59,7 +59,7 @@ function Header (props){
                 </Nav>
                 <Nav className='ml-auto' navbar>
                     <NavItem>
-                        {isAuthenticated?<LogoutButton/>:<LoginButton/>}
+                        {isAuthenticated?<LogoutButton fetchPlayer={props.fetchPlayer} activePlayer={props.activePlayer}/>:<LoginButton/>}
                     </NavItem>
                 </Nav>
             </Collapse>

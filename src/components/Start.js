@@ -1,5 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import react from 'react';
+import react,{useEffect} from 'react';
 
 import {
     Button,
@@ -7,8 +7,7 @@ import {
 
 
 function Start(props){
-
-    const {getAccessTokenSilently,user} =useAuth0();
+    const {getAccessTokenSilently} =useAuth0();
 
     const startButtonClicked=async ()=>{
         const token=await getAccessTokenSilently();
@@ -16,7 +15,7 @@ function Start(props){
     }
 
     return(
-        <Button disabled={user.email!==props.game.creator} outline color="warning" size="lg" block onClick={startButtonClicked}>Start Game</Button>
+        <Button disabled={props.activePlayer.player.userName!==props.game.creator} outline color="warning" size="lg" block onClick={startButtonClicked}>Start Game</Button>
     )
 }
 
