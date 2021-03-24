@@ -1,1 +1,1 @@
-# Front end for website mazingame.com
+# Front end for the game [mazing](mazingame.com)
