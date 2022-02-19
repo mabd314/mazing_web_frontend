@@ -12,12 +12,13 @@ import 'bootstrap-social/bootstrap-social.css';
 ReactDOM.render(
   <React.StrictMode>
     <Auth0Provider
-        domain="moapps.us.auth0.com"
-        clientId="yjY5YBQbRMTYNfiwJRaxm0WepV9lqJkv"
-        audience="https://mazing.com"
-        // redirectUri="http://localhost:3000/login"
-        redirectUri="https://www.mazingame.com/login"
-        >
+      domain="moapps.us.auth0.com"
+      clientId="yjY5YBQbRMTYNfiwJRaxm0WepV9lqJkv"
+      audience="https://mazing.com"
+      // redirectUri="http://localhost:3000/login"
+      // redirectUri="https://www.mazingame.com/login"
+      redirectUri="https://mazingame.netlify.app/login"
+    >
       <App />
     </Auth0Provider>
   </React.StrictMode>,
