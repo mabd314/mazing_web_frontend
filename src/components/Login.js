@@ -15,7 +15,6 @@ function Login (props){
         try{
             await getAccessTokenSilently();
         }catch(err){
-            console.log(err);
             loginWithRedirect();
         }
     },[]);

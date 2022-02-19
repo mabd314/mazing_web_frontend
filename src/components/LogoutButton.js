@@ -10,7 +10,6 @@ function LogoutButton(props) {
 
   useEffect(async () => {
     const token=await getAccessTokenSilently();
-    console.log(token);
     props.fetchPlayer(token);
 },[]);
 
