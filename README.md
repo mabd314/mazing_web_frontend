@@ -1,1 +1,1 @@
-# Front end for the game [mazing](https://mazingame.com)
+# Front end for the game [mazing](https://mazingame.netlify.app/)
