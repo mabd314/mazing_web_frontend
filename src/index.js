@@ -15,7 +15,7 @@ ReactDOM.render(
       domain="moapps.us.auth0.com"
       clientId="yjY5YBQbRMTYNfiwJRaxm0WepV9lqJkv"
       audience="https://mazing.com"
-      redirectUri={process.env.NODE_ENV.REACT_APP_REDIRECT_URI}
+      redirectUri={process.env.REACT_APP_REDIRECT_URI}
     >
       <App />
     </Auth0Provider>
