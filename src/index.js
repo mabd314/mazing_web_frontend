@@ -15,9 +15,7 @@ ReactDOM.render(
       domain="moapps.us.auth0.com"
       clientId="yjY5YBQbRMTYNfiwJRaxm0WepV9lqJkv"
       audience="https://mazing.com"
-      // redirectUri="http://localhost:3000/login"
-      // redirectUri="https://www.mazingame.com/login"
-      redirectUri="https://mazingame.netlify.app/login"
+      redirectUri={process.env.REACT_APP_REDIRECT_URI}
     >
       <App />
     </Auth0Provider>

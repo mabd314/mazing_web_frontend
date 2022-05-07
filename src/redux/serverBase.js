@@ -1,4 +1,2 @@
-// const serverBase='https://api.mazingame.com';
-// const serverBase='http://localhost:5000';
-const serverBase = 'https://mazingame.herokuapp.com';
+const serverBase=process.env.REACT_APP_SERVER_BASE
 export default serverBase;
